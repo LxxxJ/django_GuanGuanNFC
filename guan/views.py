@@ -166,6 +166,7 @@ class ActivityAPIView(APIView):
         else:
             return Response(False)
 
+
 @method_decorator(csrf_exempt)
 def DaoActivityInsert1(request):
     if request.method == "POST":

@@ -4,7 +4,7 @@ from .models import UserInfo,ActivityType,Activity,ActSta,Box,BoxContent,Friend,
 class UserInfoModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
-        fields = ('nid','user_name','password','active_day','last_act')
+        fields = ('nid','active_day','last_act')
 
 class ActivityTypeModelSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,4 +47,4 @@ class PushNoteModelSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source='author_id.user_name')
     class Meta:
         model = PushNote
-        fields = ('nid','author_name','title','summary','contents')
+        fields = ('nid','author_name','title','summary','contents','created_time')
