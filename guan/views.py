@@ -515,6 +515,7 @@ class DaoBoxQueryAllBoxAPIView(APIView):
         else:
             return Response("查无此人")
 
+@method_decorator(csrf_exempt)
 def DaoBoxQueryBoxAndContent(request):
     if request.method == "GET":
         user_name = request.GET.get('user_name')
@@ -529,6 +530,7 @@ def DaoBoxQueryBoxAndContent(request):
         raw = dictfetchall(cursor)
         return JsonResponse(list(raw), safe=False, json_dumps_params={'ensure_ascii': False})
 
+@method_decorator(csrf_exempt)
 def DaoBoxQueryBox(request):
     if request.method == "GET":
         user_name = request.GET.get('user_name')
@@ -592,6 +594,7 @@ def DaoBoxContentUpdate(request):
         BoxContent.objects.filter(box_id=box, thing_name=thing_name).update(thing_num=thing_num,updated_time=int(time.time()))
         return HttpResponse(True)
 
+@method_decorator(csrf_exempt)
 def DaoBoxContentLoadQuery(request):
     if request.method == "GET":
         user_name = request.GET.get('user_name')

@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec780137-4f95-4301-8dcb-10a19d9ea9be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0003_auto_20200529_1244.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0004_auto_20200529_1430.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0005_auto_20200529_1437.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0006_auto_20200604_1124.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0007_auto_20200604_1506.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guan/migrations/0008_auto_20200604_1822.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django_GuanGuanNFC/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_GuanGuanNFC/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guan/Serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/guan/Serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guan/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/guan/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guan/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/guan/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +119,7 @@
       <workItem from="1590733346768" duration="28057000" />
       <workItem from="1591084672195" duration="372000" />
       <workItem from="1591256635006" duration="20979000" />
-      <workItem from="1591337490484" duration="7784000" />
+      <workItem from="1591337490484" duration="10525000" />
     </task>
     <servers />
   </component>
