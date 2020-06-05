@@ -41,7 +41,7 @@ class ApplicationModelSerializer(serializers.ModelSerializer):
     user_name = serializers.CharField(source='from_id.user_name')
     class Meta:
         model = Application
-        fields = ('from_id','content','created_time')
+        fields = ('user_name','content','created_time')
 
 class PushNoteModelSerializer(serializers.ModelSerializer):
     author_name = serializers.CharField(source='author_id.user_name')
