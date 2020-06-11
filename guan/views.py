@@ -195,6 +195,8 @@ def DaoActivityDelete(request):
         user_name = request.POST.get('user_name')
         act_name = request.POST.get('act_name')
         user_ID = UserInfo.objects.get(user_name=user_name).nid
+        act_id = Activity.objects.filter(user_id=user_ID,act_name=act_name).first().nid
+        ActSta.objects.filter(act_id=act_id).delete()
         Activity.objects.filter(user_id=user_ID,act_name=act_name).delete()
         return HttpResponse(True)
 
@@ -223,7 +225,9 @@ def DaoActivityQuery1(request):
 def DaoActivityQuery2(request):
     if request.method == "GET":
         nfc = request.GET.get('nfc')
-        if Activity.objects.filter(nfc=nfc).count() != 0:
+        user_name = request.GET.get('username')
+        user_id = UserInfo.objects.get(user_name=user_name).nid
+        if Activity.objects.filter(nfc=nfc,user_id=user_id).count() != 0:
             return HttpResponse(True)
         else:
             return HttpResponse(False)
@@ -231,7 +235,9 @@ def DaoActivityQuery2(request):
 class Activity2APIView(APIView):
     def get(self,request,format=None):
         nfc = self.request.query_params.get("nfc", 0)
-        activity = Activity.objects.filter(nfc=nfc)
+        username = self.request.query_params.get("username",0)
+        user_id = UserInfo.objects.get(user_name=username).nid
+        activity = Activity.objects.filter(nfc=nfc,user_id=user_id)
         if activity:
             activityInfo = ActivityModelSerializer(activity, many=True)
             return Response(activityInfo.data)
@@ -454,6 +460,8 @@ def DaoBoxDelete(request):
         user_name = request.POST.get('user_name')
         box_name = request.POST.get('box_name')
         user_id = UserInfo.objects.get(user_name=user_name).nid
+        box_id = Box.objects.filter(user_id=user_id,box_name=box_name).first.nid
+        BoxContent.objects.filter(box_id=box_id).delete()
         Box.objects.filter(user_id=user_id,box_name=box_name).delete()
         return HttpResponse(True)
 
@@ -492,7 +500,9 @@ def DaoBoxQuery(request):
 def DaoBoxQueryNFC(request):
     if request.method == "GET":
         nfc = request.GET.get('nfc')
-        if Box.objects.filter(nfc=nfc).count() != 0:
+        username = request.GET.get('username')
+        user_id = UserInfo.objects.get(user_name=username).nid
+        if Box.objects.filter(nfc=nfc,user_id=user_id).count() != 0:
             return HttpResponse(True)
         else:
             return HttpResponse(False)
@@ -501,7 +511,9 @@ def DaoBoxQueryNFC(request):
 def DaoBoxQueryBoxByNFC(request):
     if request.method == "GET":
         nfc = request.GET.get('nfc')
-        box_name = Box.objects.get(nfc=nfc).box_name
+        username = request.GET.get('username')
+        user_id = UserInfo.objects.get(user_name=username).nid
+        box_name = Box.objects.filter(nfc=nfc,user_id=user_id).first().box_name
         data={'box_name':box_name}
         return JsonResponse(data)
 
